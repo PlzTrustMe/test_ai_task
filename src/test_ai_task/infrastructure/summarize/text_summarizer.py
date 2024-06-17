@@ -13,9 +13,9 @@ class HuggingFaceTextSummarizer(TextSummarizer):
         )
 
         result = summarizer(
-            text,
-            max_length=130,
-            min_length=30,
+            text.to_raw(),
+            max_length=200,
+            min_length=10,
             do_sample=False
         )
 

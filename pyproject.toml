@@ -10,6 +10,7 @@ packages = [{include = "test_ai_task", from = "src"}]
 python = "^3.11"
 transformers = "^4.41.2"
 fastapi = "^0.111.0"
+dishka = "^1.2.0"
 
 
 [build-system]

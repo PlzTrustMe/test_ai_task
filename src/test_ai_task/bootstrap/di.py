@@ -8,7 +8,7 @@ from dishka import (
 from test_ai_task.application.summarize_text import SummarizeText
 from test_ai_task.domain.common.services.text_summarizer import TextSummarizer
 from test_ai_task.infrastructure.summarize.text_summarizer import (
-    HuggingFaceTextSummarizer
+    LangChainTextSummarizer
 )
 
 
@@ -16,7 +16,7 @@ def service_provider() -> Provider:
     provider = Provider()
 
     provider.provide(
-        HuggingFaceTextSummarizer,
+        LangChainTextSummarizer,
         scope=Scope.REQUEST,
         provides=TextSummarizer
     )

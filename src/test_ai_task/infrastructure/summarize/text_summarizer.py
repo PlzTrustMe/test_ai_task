@@ -1,4 +1,3 @@
-from langchain.chains.llm import LLMChain
 from langchain_core.prompts import PromptTemplate
 from transformers import pipeline
 
@@ -39,8 +38,8 @@ class LangChainTextSummarizer(TextSummarizer):
             template="{text}"
         )
 
-        summarize_chain = LLMChain(llm=llm, prompt=summarize_prompt)
+        summarize_chain = summarize_prompt | llm
 
-        summary = summarize_chain.run(text=text.to_raw())
+        summary = summarize_chain.invoke(input={"text": text.to_raw()})
 
         return SummarizedText(value=summary)
